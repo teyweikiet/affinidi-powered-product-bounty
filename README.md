@@ -49,7 +49,7 @@ The doctor appointment allows user to make a doctor appointment for virtual cons
 
 - User who has logged in with Affinidi with be able to see recommendations for doctors based on their locality and country.
 
-- User who has logged in with Affinidi will be able to make an appointment with all their details e.g. name, email, phone number, address, gender & date of birth prefilled. (refer codes [here](/app/components/Form/AppointmentForm.jsx#14-30))
+- User who has logged in with Affinidi will be able to make an appointment with all their details e.g. name, email, phone number, address, gender & date of birth prefilled. (refer codes [here](/app/components/Form/AppointmentForm.jsx#11-33))
 
 - User can make doctor appointment without logging in. However, they will be missing out on the ability to primarily be shown doctors in their area. Also they will have to fill out their details.
   - A dismissable prompt will be shown to them to explain the benefits of logging in with Affinidi. (refer codes [here](/app/page.jsx#12-30))

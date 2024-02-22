@@ -1,4 +1,4 @@
-import { useMediaQuery } from '@mantine/hooks'
+import { useMediaQuery, usePrevious } from '@mantine/hooks'
 
 import { useState } from 'react'
 import { Stepper, Button, Group, TextInput, Modal, Center, Text, Chip, InputWrapper } from '@mantine/core'
@@ -8,26 +8,29 @@ import { IconCalendarEvent } from '@tabler/icons-react'
 import { DateInput } from '@mantine/dates'
 import { useAuthentication } from '@/app/lib/hooks/useAuthentication'
 
+const initialValues = (user) => ({
+  date: '',
+  time: '',
+  givenName: user?.givenName ?? '',
+  familyName: user?.familyName ?? '',
+  gender: user?.gender ?? '',
+  birthdate: user?.birthdate ? new Date(user?.birthdate) : '',
+  email: user?.email ?? '',
+  phoneNumber: user?.phoneNumber ?? '',
+  address: user?.streetAddress ?? '',
+  postalCode: user?.postalCode ?? '',
+  city: user?.locality ?? '',
+  country: user?.country ?? ''
+})
+
 export function AppointmentForm ({ opened, close, doctor }) {
   const isMobile = useMediaQuery('(max-width: 50em)')
   const [active, setActive] = useState(0)
   const { user } = useAuthentication()
+  const previousUser = usePrevious(user)
 
   const form = useForm({
-    initialValues: {
-      date: '',
-      time: '',
-      givenName: user?.givenName ?? '',
-      familyName: user?.familyName ?? '',
-      gender: user?.gender ?? '',
-      birthdate: user?.birthdate ? new Date(user?.birthdate) : '',
-      email: user?.email ?? '',
-      phoneNumber: user?.phoneNumber ?? '',
-      address: user?.streetAddress ?? '',
-      postalCode: user?.postalCode ?? '',
-      city: user?.locality ?? '',
-      country: user?.country ?? ''
-    },
+    initialValues: initialValues(user),
 
     validate: (values) => {
       if (active === 0) {
@@ -67,6 +70,10 @@ export function AppointmentForm ({ opened, close, doctor }) {
     })
 
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
+
+  if (user !== previousUser) {
+    form.setInitialValues(initialValues(user))
+  }
 
   return (
       <Modal

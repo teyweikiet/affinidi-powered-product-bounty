@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "css"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint-config-standard",
+    "plugin:css/standard"
+  ]
 }

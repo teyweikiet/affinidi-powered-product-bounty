@@ -6,18 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@mantine/core": "^7.5.2",
+    "@mantine/dates": "^7.5.3",
+    "@mantine/form": "^7.5.3",
+    "@mantine/hooks": "^7.5.2",
+    "@mantine/notifications": "^7.5.3",
+    "@tabler/icons-react": "^2.47.0",
+    "@tanstack/react-query": "^5.20.5",
+    "dayjs": "^1.11.10",
+    "next": "14.1.0",
+    "next-auth": "^4.24.6",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-css": "^0.9.1",
+    "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
+    "vercel": "^33.5.1"
   }
 }

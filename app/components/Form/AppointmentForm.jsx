@@ -72,7 +72,7 @@ export function AppointmentForm ({ opened, close, doctor }) {
   const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
 
   if (user !== previousUser) {
-    form.setInitialValues(initialValues(user))
+    form.initialize(initialValues(user))
   }
 
   return (

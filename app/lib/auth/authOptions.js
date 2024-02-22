@@ -2,7 +2,7 @@ import { PROVIDER_ATTRIBUTES_KEY, provider } from './authProvider'
 import locales from '@lib/locales.json'
 
 export const authOptions = {
-  debug: true,
+  debug: process.env.NODE_ENV === 'development',
   session: { strategy: 'jwt' },
   providers: [provider],
   callbacks: {

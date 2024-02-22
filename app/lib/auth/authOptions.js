@@ -48,7 +48,6 @@ export const authOptions = {
     },
     // session is persisted as an HttpOnly cookie
     async session ({ session, token }) {
-      console.log('authOptions session token: ', JSON.stringify(token))
       return {
         ...session,
         ...(token.user && { user: { ...session.user, ...token.user } }),

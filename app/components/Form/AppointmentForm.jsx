@@ -30,7 +30,6 @@ export function AppointmentForm ({ opened, close, doctor }) {
     },
 
     validate: (values) => {
-      console.log('validate values: ', JSON.stringify(values))
       if (active === 0) {
         return {
           date: !values.date

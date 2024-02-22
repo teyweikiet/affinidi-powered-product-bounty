@@ -7,7 +7,6 @@ import { NextResponse } from 'next/server'
 
 export async function _handler (req) {
   const session = await getServerSession(authOptions)
-  console.log('auth session: ', JSON.stringify(session))
   const accessToken = session?.accessToken
   const userId = session?.userId
   const user = session?.user
